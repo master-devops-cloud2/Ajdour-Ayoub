@@ -53,15 +53,20 @@ public class LivreurSvcApplicationTests {
 
     @Test
     void testGetLivreurById() {
+        // Corrected expected phone number
         Livreur livreur = new Livreur(1L, "Ayoub Ajdour", "0657017246", true);
         when(livreurRepository.findById(1L)).thenReturn(java.util.Optional.of(livreur));
+
         Livreur result = livreurRepository.findById(1L).orElse(null);
+
         assertNotNull(result);
         assertEquals("Ayoub Ajdour", result.getNom());
-        assertEquals("0678123456", result.getTelephone());
+        assertEquals("0657017246", result.getTelephone()); // Fixed expected value
         assertTrue(result.isDisponible());
+
         verify(livreurRepository, times(1)).findById(1L);
     }
+
 
     @Test
     void testUpdateLivreur() {
