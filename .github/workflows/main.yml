@@ -33,11 +33,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2
 
-      # Step 4: Run Maven build and tests
-      - name: Build and Test with Maven
-        run: mvn clean verify
+      # Step 4: Build the project with Maven
+      - name: Build with Maven
+        run: mvn clean install -DskipTests=true  # Skip tests during the build phase
 
-      # Step 5: Upload test results (Optional)
+      # Step 5: Run tests with Maven
+      - name: Run tests with Maven
+        run: mvn test  # Run tests separately
+
+      # Step 6: Upload test results (Optional)
       - name: Upload Test Results
         if: always()  # Runs this step even if previous steps fail
         uses: actions/upload-artifact@v3
