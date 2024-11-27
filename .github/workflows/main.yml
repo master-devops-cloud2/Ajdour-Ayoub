@@ -16,11 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'openjdk'
+      - name: Set up JDK 21 (manual installation)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-21-jdk
 
       - name: Install dependencies
         run: mvn install -DskipTests=true
