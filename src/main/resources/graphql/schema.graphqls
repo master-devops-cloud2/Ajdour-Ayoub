@@ -1,0 +1,23 @@
+type Query {
+    AllLivreurs: [Livreur],
+    LivreurById(id: Int!): Livreur
+}
+
+type Mutation {
+    createLivreur(livreurRequest: LivreurRequest): Livreur,
+    updateLivreur(id: Int!, nom: String, telephone: String, disponible: Boolean): Livreur,
+    deleteLivreur(id: Int!): Boolean
+}
+
+type Livreur {
+    id: Int,
+    nom: String,
+    telephone: String,
+    disponible: Boolean
+}
+
+input LivreurRequest {
+    nom: String,
+    telephone: String,
+    disponible: Boolean
+}
