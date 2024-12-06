@@ -39,7 +39,7 @@ jobs:
       - name: 🔍 SonarCloud Scan
         run: |
           mvn sonar:sonar \
-            -Dsonar.projectKey=Ayoub-Ajdour \
+            -Dsonar.projectKey=Ajdour-Ayoub \
             -Dsonar.organization=ayoub-ajdour \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONARTOKEN }}
